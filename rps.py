@@ -62,7 +62,7 @@ class Rps(object):
 
     def pause(self):
         if self.human:
-            print("Press 'enter' when you're ready to play against {} (the computer).").format(self.computer)
+            print("Press 'enter' when you're ready to play against {} (the computer).".format(self.computer))
 
 
 if __name__ == "__main__":

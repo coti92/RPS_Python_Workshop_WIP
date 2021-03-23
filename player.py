@@ -1,32 +1,25 @@
 import random
-
+from labelconstans import LabelConstants
 
 class Player(object):
-
+    
     def __init__(self):
         self.hand = []
 
     def player_hand(self):
         print('Please choose (R)ock, (P)aper, or (S)cissor: ')
-        hand_p = input()
-        if hand_p not in 'rpsRPS':
+        hand_p = str(input()).upper()
+        if hand_p in LabelConstants.LABELS.keys():
+            return LabelConstants.LABELS[hand_p]
+        else:
             print ('Invalid selection. Please try again.')
             self.player_hand()
-        elif hand_p == 'r' or hand_p == 'R':
-            hand_p = 'rock'
-            return hand_p
-        elif hand_p == 'p' or hand_p == 'P':
-            hand_p = 'paper'
-            return hand_p
-        elif hand_p == 's' or hand_p == 'S':
-            hand_p = 'scissor'
-            return hand_p
 
     def computer_hand(self):
         hand_c = random.randint(1,3)
         if hand_c == 1:
-            return 'rock'
+            return LabelConstants.LABELS["R"]
         elif hand_c == 2:
-            return 'paper'
+            return LabelConstants.LABELS["P"]
         elif hand_c == 3:
-            return 'scissor'
+            return LabelConstants.LABELS["S"]
