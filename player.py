@@ -7,9 +7,10 @@ class Player(object):
         self.hand = []
 
     def player_hand(self):
-        hand_p = raw_input('Please choose (R)ock, (P)aper, or (S)cissor: ')
+        print('Please choose (R)ock, (P)aper, or (S)cissor: ')
+        hand_p = input()
         if hand_p not in 'rpsRPS':
-            print 'Invalid selection. Please try again.'
+            print ('Invalid selection. Please try again.')
             self.player_hand()
         elif hand_p == 'r' or hand_p == 'R':
             hand_p = 'rock'

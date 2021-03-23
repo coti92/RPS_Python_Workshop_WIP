@@ -1,21 +1,19 @@
 from player import Player
-import random
-
 
 class Rps(object):
 
     def __init__(self, human=True):
         self.human = human
         self.player = self.create_player()
-        self.computer = 'Alfred'
+        self.computer = 'Khaox'
         self.winner = None
         self.loser = None
 
 
-    def create_player(self)
+    def create_player(self):
         if self.human:
-            name = raw_input("Please enter your name: ")
-            return name
+            print("Please enter your name: ")
+            return str(input())
 
     def play_game(self):
         while self.winner is None:
@@ -26,7 +24,7 @@ class Rps(object):
             self.display_play(hand_p, hand_c)
 
             if hand_p == hand_c:
-                print "Tie! Ugh..."
+                print ("Tie! Ugh...")
                 self.play_game()
             elif hand_p == 'rock' and hand_c == 'scissor':
                 self.winner = self.player
@@ -54,17 +52,17 @@ class Rps(object):
                 self.display_winner(self.winner, self.loser)
 
     def display_play(self, hand_p, hand_c):
-        print "{} plays {}.".format(self.player, hand_p)
-        print "{} plays {}.".format(self.computer, hand_c)
+        print ("{} plays {}.".format(self.player, hand_p))
+        print ("{} plays {}.".format(self.computer, hand_c))
 
 
     def display_winner(self, winner, loser):
-        print "{} has lost. {} has won. Long live {}!".format(self.loser, self.winner, self.winner)
+        print ("{} has lost. {} has won. Long live {}!".format(self.loser, self.winner, self.winner))
 
 
     def pause(self):
         if self.human:
-            raw_input("Press 'enter' when you're ready to play against Alfred (the computer).")
+            print("Press 'enter' when you're ready to play against {} (the computer).").format(self.computer)
 
 
 if __name__ == "__main__":
